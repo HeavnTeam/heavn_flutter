@@ -1,4 +1,4 @@
-// Copyright 2014 The Flutter Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -19,10 +19,10 @@ import 'package:flutter/painting.dart';
 const double kMinInteractiveDimension = 48.0;
 
 /// The height of the toolbar component of the [AppBar].
-const double kToolbarHeight = 56.0;
+const double kToolbarHeight = 50.0;///Heavn Fork
 
 /// The height of the bottom navigation bar.
-const double kBottomNavigationBarHeight = 56.0;
+const double kBottomNavigationBarHeight = 50.0;///Heavn Fork
 
 /// The height of a tab bar containing text.
 const double kTextTabBarHeight = kMinInteractiveDimension;

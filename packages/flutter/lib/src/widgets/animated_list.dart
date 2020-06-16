@@ -469,6 +469,11 @@ class AnimatedList extends StatefulWidget {
 class AnimatedListState extends State<AnimatedList> with TickerProviderStateMixin<AnimatedList> {
   final GlobalKey<SliverAnimatedListState> _sliverAnimatedListKey = GlobalKey();
 
+  ///Heavn Fork
+  void changeInitialCount(int newItemCount) {
+    _sliverAnimatedListKey.currentState.changeInitialCount(newItemCount);
+  }
+
   /// Insert an item at [index] and start an animation that will be passed
   /// to [AnimatedList.itemBuilder] when the item is visible.
   ///
@@ -981,6 +986,13 @@ class SliverAnimatedListState extends State<SliverAnimatedList> with TickerProvi
 
     controller.forward().then<void>((_) {
       _removeActiveItemAt(_incomingItems, incomingItem.itemIndex)!.controller!.dispose();
+    });
+  }
+
+  ///Heavn Fork
+  void changeInitialCount(int newItemCount) {
+    setState(() {
+      _itemsCount = newItemCount;
     });
   }
 
