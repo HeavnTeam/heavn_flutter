@@ -933,6 +933,7 @@ class _PackageLicensePageState extends State<_PackageLicensePage> {
 =======
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(localizations.licensesPageTitle),
         leading: material.IconButton(
           icon: Image.asset(
