@@ -289,11 +289,13 @@ void showLicensePage({
   Widget? applicationIcon,
   String? applicationLegalese,
   bool useRootNavigator = false,
+  Color loaderColor,
 }) {
   assert(context != null);
   assert(useRootNavigator != null);
   Navigator.of(context, rootNavigator: useRootNavigator).push(MaterialPageRoute<void>(
     builder: (BuildContext context) => LicensePage(
+      loaderColor: loaderColor,
       applicationName: applicationName,
       applicationVersion: applicationVersion,
       applicationIcon: applicationIcon,
