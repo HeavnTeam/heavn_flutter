@@ -16,7 +16,11 @@ import 'card.dart';
 import 'constants.dart';
 import 'debug.dart';
 import 'dialog.dart';
+<<<<<<< HEAD
 import 'divider.dart';
+=======
+import 'flat_button.dart';
+>>>>>>> 9b24de5868... Fix new about
 import 'floating_action_button.dart';
 import 'floating_action_button_location.dart';
 import 'ink_decoration.dart';
@@ -448,12 +452,17 @@ class LicensePage extends StatefulWidget {
   ///
   /// The licenses shown on the [LicensePage] are those returned by the
   /// [LicenseRegistry] API, which can be used to add more licenses to the list.
+
+
+  final Color loaderColor;
+
   const LicensePage({
     Key? key,
     this.applicationName,
     this.applicationVersion,
     this.applicationIcon,
     this.applicationLegalese,
+    this.loaderColor,
   }) : super(key: key);
 
   /// The name of the application.
@@ -522,6 +531,7 @@ class _LicensePageState extends State<LicensePage> {
       about: about,
       isLateral: isLateral,
       selectedId: selectedId,
+      loaderColor: widget.loaderColor,
     );
   }
 }
@@ -582,11 +592,22 @@ class _AboutProgram extends StatelessWidget {
 }
 
 class _PackagesView extends StatefulWidget {
+
+  final Color loaderColor;
+
   const _PackagesView({
+<<<<<<< HEAD
     Key? key,
     required this.about,
     required this.isLateral,
     required this.selectedId,
+=======
+    Key key,
+    @required this.about,
+    @required this.isLateral,
+    @required this.selectedId,
+    @required this.loaderColor,
+>>>>>>> 9b24de5868... Fix new about
   })  : assert(about != null),
         assert(isLateral != null),
         super(key: key);
@@ -893,7 +914,7 @@ class _PackageLicensePageState extends State<_PackageLicensePage> {
   Widget build(BuildContext context) {
     assert(debugCheckHasMaterialLocalizations(context));
     final MaterialLocalizations localizations = MaterialLocalizations.of(context);
-<<<<<<< HEAD
+//<<<<<<< HEAD
     final ThemeData theme = Theme.of(context);
     final String title = widget.packageName;
     final String subtitle = localizations.licensesPackageDetailText(widget.licenseEntries.length);
@@ -914,11 +935,8 @@ class _PackageLicensePageState extends State<_PackageLicensePage> {
     if (widget.scrollController == null) {
       page = Scaffold(
         appBar: AppBar(
-          title: _PackageLicensePageTitle(
-            title,
-            subtitle,
-            theme.appBarTheme.textTheme ?? theme.primaryTextTheme,
-          ),
+          centerTitle: true,
+          title: _PackageLicensePageTitle(title, subtitle, theme.primaryTextTheme),
         ),
         body: Center(
           child: Material(
@@ -932,54 +950,54 @@ class _PackageLicensePageState extends State<_PackageLicensePage> {
                 child: Scrollbar(
                   child: ListView(padding: padding, children: listWidgets),
                 ),
-=======
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(localizations.licensesPageTitle),
-        leading: material.IconButton(
-          icon: Image.asset(
-            'assets/ic_appbar_back.png',
-            height: 16.0,
-            width: 16.0,
-            fit: BoxFit.fitHeight,
-          ),
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-        ),
-      ),
-      // All of the licenses page text is English. We don't want localized text
-      // or text direction.
-      body: Localizations.override(
-        locale: const Locale('en', 'US'),
-        context: context,
-        child: DefaultTextStyle(
-          style: Theme.of(context).textTheme.caption,
-          child: SafeArea(
-            bottom: false,
-            child: Scrollbar(
-              child: ListView(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
-                children: <Widget>[
-                  Text(name, style: Theme.of(context).textTheme.headline5, textAlign: TextAlign.center),
-                  if (icon != null) IconTheme(data: Theme.of(context).iconTheme, child: icon),
-                  Text(version, style: Theme.of(context).textTheme.bodyText2, textAlign: TextAlign.center),
-                  Container(height: 18.0),
-                  Text(widget.applicationLegalese ?? '', style: Theme.of(context).textTheme.caption, textAlign: TextAlign.center),
-                  Container(height: 18.0),
-                  Text('Powered by Flutter', style: Theme.of(context).textTheme.bodyText2, textAlign: TextAlign.center),
-                  Container(height: 24.0),
-                  ..._licenses,
-                  if (!_loaded)
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 24.0),
-                      child: Center(
-                        child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(HColors.messageBlue)),
-                      ),
-                    ),
-                ],
->>>>>>> Heavn fork #2
+//=======
+//    return Scaffold(
+//      appBar: AppBar(
+//        centerTitle: true,
+//        title: Text(localizations.licensesPageTitle),
+//        leading: material.IconButton(
+//          icon: Image.asset(
+//            'assets/ic_appbar_back.png',
+//            height: 16.0,
+//            width: 16.0,
+//            fit: BoxFit.fitHeight,
+//          ),
+//          onPressed: () {
+//            Navigator.of(context).pop();
+//          },
+//        ),
+//      ),
+//      // All of the licenses page text is English. We don't want localized text
+//      // or text direction.
+//      body: Localizations.override(
+//        locale: const Locale('en', 'US'),
+//        context: context,
+//        child: DefaultTextStyle(
+//          style: Theme.of(context).textTheme.caption,
+//          child: SafeArea(
+//            bottom: false,
+//            child: Scrollbar(
+//              child: ListView(
+//                padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
+//                children: <Widget>[
+//                  Text(name, style: Theme.of(context).textTheme.headline5, textAlign: TextAlign.center),
+//                  if (icon != null) IconTheme(data: Theme.of(context).iconTheme, child: icon),
+//                  Text(version, style: Theme.of(context).textTheme.bodyText2, textAlign: TextAlign.center),
+//                  Container(height: 18.0),
+//                  Text(widget.applicationLegalese ?? '', style: Theme.of(context).textTheme.caption, textAlign: TextAlign.center),
+//                  Container(height: 18.0),
+//                  Text('Powered by Flutter', style: Theme.of(context).textTheme.bodyText2, textAlign: TextAlign.center),
+//                  Container(height: 24.0),
+//                  ..._licenses,
+//                  if (!_loaded)
+//                    const Padding(
+//                      padding: EdgeInsets.symmetric(vertical: 24.0),
+//                      child: Center(
+//                        child: CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(HColors.messageBlue)),
+//                      ),
+//                    ),
+//                ],
+//>>>>>>> Heavn fork #2
               ),
             ),
           ),
