@@ -471,7 +471,7 @@ class AnimatedListState extends State<AnimatedList> with TickerProviderStateMixi
 
   ///Heavn Fork
   void changeInitialCount(int newItemCount) {
-    _sliverAnimatedListKey.currentState.changeInitialCount(newItemCount);
+    _sliverAnimatedListKey.currentState?.changeInitialCount(newItemCount);
   }
 
   /// Insert an item at [index] and start an animation that will be passed
